@@ -42,13 +42,20 @@ Vagrant.configure(2) do |config|
     set -e
     sudo locale-gen en_US
 
+    echo "=> updating and installing build-essential..."
     sudo apt-get update -qq && sudo apt-get install -y build-essential
+    echo "=> installing libpq-dev..."
     sudo apt-get install -y libpq-dev > /dev/null
+    echo "=> installing libxml2-dev and libxslt1-dev..."
     sudo apt-get install -y libxml2-dev libxslt1-dev > /dev/null
+    echo "=> installing libqt4-webkit, libqt4-dev, and xvfb..."
     sudo apt-get install -y libqt4-webkit libqt4-dev xvfb > /dev/null
+    echo "=> installing libsqlite3..."
     sudo apt-get install -y libsqlite3-dev > /dev/null
+    echo "=> installing nodejs..."
     sudo apt-get install -y nodejs > /dev/null
 
+    echo "=> installing git..."
     sudo apt-get install -y git > /dev/null
 
     # setup rbenv and ruby-build
